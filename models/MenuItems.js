@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connections");
 
 class MenuItems extends Model {}
@@ -6,23 +6,18 @@ class MenuItems extends Model {}
 MenuItems.init(
   {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
     item_name: {
-      type: Datatypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     price: {
-      type: Datatypes.DECIMAL,
+      type: DataTypes.DECIMAL,
       allowNull: false,
-    },
-    comments: {
-      // verify text for datatype
-      type: Datatypes.TEXT,
-      allowNull: true,
     },
     image_path: {
       type: DataTypes.STRING,
