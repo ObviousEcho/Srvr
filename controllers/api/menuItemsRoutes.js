@@ -4,7 +4,7 @@ module.exports = router;
 
 router.get('/', async(req, res) => {
   const  menuItems = await MenuItems.findAll();
-  res.status(200).json(users);
+  res.status(200).json(menuItems);
 });
 
 router.get('/:id', async (req, res) => {
