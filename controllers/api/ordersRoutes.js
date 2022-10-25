@@ -37,36 +37,16 @@ router.post('/', (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
 
-  OrderItems.update(
-    {
-      item: req.body.item,
-      mod: req.body.item
-    },
-    {
-      where:{
-        id: req.params.id,
-      }
-    }
-  )
-  .then((updatedOrderItem) => {
-    res.json(updatedOrderItem);
-  })
-  .catch((err) => {
-    console.log(err);
-    res.json(err);
-  });
-});
 
 router.delete('/:id', (req, res) => {
-  OrderItems.destroy({
+  Orders.destroy({
     where: {
       id: req.params.id,
     },
   })
-    .then((deletedOrderItem) => {
-      res.json(deletedOrderItem);
+    .then((deletedOrder) => {
+      res.json(deletedOrder);
     })
     .catch((err) => res.json(err));
 });
