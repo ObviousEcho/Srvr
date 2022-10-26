@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
     image_path: req.body.image_path
   })
   .then((newMenuItem) =>{
-    res.json(newMenuItem);
+    res.status(200).json(newMenuItem);
   })
   .catch((err)=>{
     res.json(err);

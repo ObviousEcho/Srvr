@@ -12,7 +12,7 @@ router.get('/:id', async (req, res) => {
   try{
     const userData = await User.findByPk(req.params.id);
     if(!userData){
-      res.status(404).json({ message: 'no user with id:'+req.params.id})
+      res.status(404).json({ message: 'no user with id: ' + req.params.id })
     }
     res.status(200).json(userData);
 
