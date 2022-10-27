@@ -22,6 +22,10 @@ OrderItems.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    customer_name: {
+      type: DataTypes.STRING,
+      alloNull: false,
+    },
     order_id: {
       type: DataTypes.INTEGER,
       references: {

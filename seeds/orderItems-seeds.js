@@ -2,13 +2,16 @@ const { OrderItems } = require('../models');
 
 const orderItemData = [
     {
-        mod: 'Test'
+        mod: 'Test',
+        customer_name: 'Andrew'
     },
     {
-        mod: ''
+        mod: '',
+        customer_name: 'Cherly',
     },
     {
-        mod: 'Testing'
+        mod: 'Testing',
+        customer_name: 'Allen'
     },
 ];
 

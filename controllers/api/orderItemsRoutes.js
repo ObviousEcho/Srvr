@@ -26,9 +26,13 @@ router.post('/', (req, res) => {
   OrderItems.create({
     item: req.body.item,
     mod: req.body.mod,
-    image_path: req.body.image_path,
+    customer_name: req.body.customer_name,
+
+    // image_path is not on the orderItems model, I don't think this applies here.
+    // image_path: req.body.image_path,
     //how do we get the correct order_id in here? not sure if next line is right or if we need something fancier
-    order_id: req.body.order_id
+    // order_id should come from the other table during a join
+    // order_id: req.body.order_id
   })
   .then((newOrderItem) =>{
     res.json(newOrderItem);
