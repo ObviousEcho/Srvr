@@ -1,5 +1,4 @@
-
-{{#if logged_out}}
+{{#unless logged_in}}
   <div class="input-group mb-3">
   <div class="input-group-prepend">
     <span class="input-group-text" id="username">Username</span>
@@ -12,5 +11,5 @@
 </div>
 <input type="text" class="form-control" placeholder="password" aria-label="password" aria-describedby="basic-addon1">
 </div>
-</div>
-{{/if}}
+<input class="btn btn-primary" type="submit" value="Submit">
+{{/unless}}
