@@ -8,24 +8,28 @@ User.hasMany(Orders, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 }),
+
   Orders.belongsTo(User, {
     foreignKey: "user_id",
   });
 
-MenuItems.belongsTo(OrderItems, {
-  foreignKey: "orderitems",
-});
 OrderItems.hasMany(MenuItems, {
-  foreignKey: "orderitems",
+  foreignKey: "item",
+});
+
+MenuItems.belongsTo(OrderItems, {
+  foreignKey: "item",
+});
+
+Orders.hasMany(OrderItems, {
+  foreignKey: "order_id",
+  onDelete: "CASCADE",
 });
 
 OrderItems.belongsTo(Orders, {
-  foreignKey: "orders",
+  foreignKey: "order_id",
 });
-Orders.hasMany(OrderItems, {
-  foreignKey: "orders",
-  onDelete: "CASCADE",
-});
+
 
 module.exports = {
   User,
