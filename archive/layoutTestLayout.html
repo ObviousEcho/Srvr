@@ -49,12 +49,34 @@
 
       <!-- menu partial -->
       <div class= "mainBody" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
-        <!-- <div class="card menuitem" style="width: 18rem;">
+        <div class="card menuitem" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">menu item</h5>
             <p class="card-text">price</p>
 
+          </div>
+
+          <div class="card menuitem" style="width: 18rem;">
+           <img src="{{menuitem.image_path}}" class="card-img-top" alt="{{menuitem.item_name}}">
+           <div class="card-body">
+             <h5 class="card-title">{{menuitem.item_name}}</h5>
+             <p class="card-text">price:{{menuitem.price}}</p>
+
+           </div>
+          </div>
+          <div class="card order" style="width: 18rem;">
+           <div class="card-body">
+             <h5 class="card-title">{{menuitem.item_name}}</h5>
+             <p class="card-text">Items:</p>
+             <ul>
+               <li>cupcake</li>
+               <li>drink</li>
+               <li>other stuffs</li>
+             </ul>
+             <p>total $$$</p>
+
+           </div>
           </div> -->
         <!-- </div>
         <div class="card menuitem" style="width: 18rem;">
@@ -103,13 +125,13 @@
             <h5 class="card-title">menu item</h5>
             <p class="card-text">price</p>
 
-          </div> -->
+          </div>
         </div>
       </div>
 
       <!-- menu partial -->
     </div>
-<!-- 
+<!--
     <div class="col col-lg-2">
       3 of 3
 
