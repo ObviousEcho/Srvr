@@ -13,17 +13,17 @@ User.hasMany(Orders, {
   });
 
 MenuItems.belongsTo(OrderItems, {
-  foreignKey: "orderitems",
+  foreignKey: "order_id",
 });
 OrderItems.hasMany(MenuItems, {
-  foreignKey: "orderitems",
+  foreignKey: "order_id",
 });
 
 OrderItems.belongsTo(Orders, {
-  foreignKey: "orders",
+  foreignKey: "order_id",
 });
 Orders.hasMany(OrderItems, {
-  foreignKey: "orders",
+  foreignKey: "order_id",
   onDelete: "CASCADE",
 });
 
