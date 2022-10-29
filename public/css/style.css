@@ -4,26 +4,30 @@
   --saten: #CE6A85;
   --plum: #985277;
   --byz: #5C374C;
+  --lilac: #885A89;
+  --purp: #201020;
+  --violet: #633964;
+  --powder: #DFD6DF;
 
 }
 
 body {
 /* display: flex; */
-background-color: white;
+background-color: var(--powder);
 height: inherit;
 
 
 }
 .col-md-auto{
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
-background-color: var(--saten);
+background-color: var(--lilac);
 border-style: solid;
-border-color: var(--byz);
+border-color: var(--purp);
 }
 nav {
 display: flex;
-background-color: var(--saten);
+background-color: var(--lilac);
 flex-direction: column;
 
 }
@@ -31,13 +35,13 @@ nav ul{
   display: flex;
 flex-wrap: wrap;
 flex-direction: column;
-background-color: var(--saten);
+background-color: var(--lilac);
 }
 .nav-item{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: var(--saten);
+  background-color: var(--lilac);
 }
 
 .mainBody{
@@ -48,20 +52,61 @@ background-color: var(--saten);
 
 }
 .menuitem{
-  background-color: var(--saten);
+  border-color: var(--coral);
+  background-color: var(--tang);
+  border-radius: 10px;
+  border-width: 5px;
   color: var(--byz);
+  margin-top: 5px;
+
 }
 
 .logout-btn{
+  display: flex;
   justify-content: center;
   align-self: flex-end;
-  background-color: var(--plum);
+  background-color: var(--purp);
   color: white;
-  border-color: var(--byz)
+  border-color: var(--purp);
+}
+
+.logout-btn:hover{
+  background-color: var(--coral);
+  color: var(--powder);
+}
+
+.btn-primary{
+  background-color: var(--purp);
+  color: white;
+  border-color: var(--purp);
+}
+.btn-primary:hover{
+  background-color: var(--coral);
+  color: white;
+  border-color: var(--purp);
 }
 
 .input-group{
-width:50%;
+  width:50%;
+}
+.input-group-prepend{
+  border-width: 10px;
+  background-color: var(--powder);
+}
+#username{
+    background-color: var(--lilac);
+    color: var(--purp);
+}
+#password{
+  background-color: var(--lilac);
+  color: var(--purp);
 }
 
-.order
+.order{
+  border-color: var(--coral);
+  background-color: var(--tang);
+  border-radius: 10px;
+  border-width: 5px;
+  color: var(--byz);
+  margin-top: 5px;
+}
