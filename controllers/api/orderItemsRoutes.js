@@ -3,7 +3,7 @@ const {MenuItems, OrderItems, Orders, User } = require('../../models')
 module.exports = router;
 
 router.get('/', async(req, res) => {
-  const  orderItems = await OrderItems.findAll();
+  const  orderItems = await OrderItems.findAll({ include: [{ model: Orders}, { model: MenuItems }] });
   res.status(200).json(orderItems);
 });
 
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     item: req.body.item,
     mod: req.body.mod,
     customer_name: req.body.customer_name,
-
+    order_id: req.body.order_id,
     // image_path is not on the orderItems model, I don't think this applies here.
     // image_path: req.body.image_path,
     //how do we get the correct order_id in here? not sure if next line is right or if we need something fancier

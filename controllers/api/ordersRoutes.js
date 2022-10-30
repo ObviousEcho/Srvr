@@ -3,7 +3,7 @@ const {MenuItems, OrderItems, Orders, User } = require('../../models')
 module.exports = router;
 
 router.get('/', async(req, res) => {
-  const  orders = await Orders.findAll();
+  const  orders = await Orders.findAll({ include: [{ model: MenuItems }, { model: OrderItems }] });
   res.status(200).json(orders);
 });
 
