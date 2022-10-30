@@ -1,43 +1,40 @@
-const router = require('express').Router();
-const {MenuItems, OrderItems, Orders, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { MenuItems, OrderItems, Orders, User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-
-router.get('/', async(req, res) => {
-  const  users = await User.findAll();
+router.get("/", async (req, res) => {
+  const users = await User.findAll();
   res.status(200).json(users);
 });
 
-router.get('/:id', async (req, res) => {
-
-  try{
+router.get("/:id", async (req, res) => {
+  try {
     const userData = await User.findByPk(req.params.id);
-    if(!userData){
-      res.status(404).json({ message: 'no user with id: ' + req.params.id })
+    if (!userData) {
+      res.status(404).json({ message: "no user with id: " + req.params.id });
     }
     res.status(200).json(userData);
-
-  }catch (err){
-    res.status(500).json(err)
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
-router.post('/', (req, res) => {
-
+router.post("/signup", (req, res) => {
+  console.log(req.body);
   User.create({
     user_name: req.body.user_name,
     is_server: req.body.is_server,
-    password: req.body.password
+    password: req.body.password,
   })
-  .then((newUser) =>{
-    res.json(newUser);
-  })
-  .catch((err)=>{
-    res.json(err);
-  })
+    .then((newUser) => {
+      res.json(newUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
       id: req.params.id,
@@ -49,19 +46,17 @@ router.delete('/:id', (req, res) => {
     .catch((err) => res.json(err));
 });
 
-
-
-router.post('/login', async (req, res) => {          
-
-
+router.post("/login", async (req, res) => {
   try {
     // Find the user who matches the posted username
-    const userData = await User.findOne({ where: { user_name: req.body.user_name } });   
+    const userData = await User.findOne({
+      where: { user_name: req.body.user_name },
+    });
 
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: "Incorrect username or password, please try again" });
       return;
     }
 
@@ -71,7 +66,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: "Incorrect username or password, please try again" });
       return;
     }
 
@@ -79,16 +74,15 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
-    });
 
+      res.json({ user: userData, message: "You are now logged in!" });
+    });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     // Remove the session variables
     req.session.destroy(() => {
@@ -98,8 +92,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-
-
 
 module.exports = router;
