@@ -5,8 +5,8 @@
         <div class="card m-4 listener menuitem" style="width: 10rem;">
           <div class="card-body">
             <h5 class="card-title menu-item">{{item_name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted item-price">${{price}}</h6>
-            <p class="card-text">Image_path is currently an empty string!{{image_path}}</p>
+            <h6 class="card-subtitle mb-2 text-muted item-price"id="price">${{price}}</h6>
+            <img src="/images/{{image_path}}" class="card-img-top" alt="{{item_name}}">
             <button class="btn btn-primary" data-item="{{item_name}}" data-price="{{price}}">Add Item</button>
           </div>
         </div>
@@ -14,7 +14,7 @@
     {{/each}}
   </ul>
 
-  <section class="mt-4 menuitem">
+  <section class="mt-4" id="orderCart">
     <h2>Order:</h2>
     <div>
       <h3>Items:</h3>

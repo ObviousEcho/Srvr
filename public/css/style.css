@@ -81,7 +81,7 @@ background-color: var(--lilac);
   border-color: var(--purp);
 }
 .btn-primary:hover{
-  background-color: var(--coral);
+  background-color: var(--lilac);
   color: white;
   border-color: var(--purp);
 }
@@ -110,6 +110,23 @@ background-color: var(--lilac);
   color: var(--byz);
   margin-top: 5px;
 }
-.item-price{
+#price{
     color: var(--byz);
+}
+
+image{
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.mt-4{
+  border-color: var(--coral);
+  background-color: var(--tang);
+  border-radius: 10px;
+  border-width: 20px;
+  color: var(--byz);
+  margin-top: 5px;
+
 }
