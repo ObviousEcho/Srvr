@@ -26,14 +26,27 @@
             </li>
           </ul>
         </div>
-        <button class="logout-btn"type="button" name="log out">Log Out</button>
+        <button class="logout-btn" id="logout" type="button" name="log out">Log Out</button>
         {{/if}}
       </nav>
 
     </div>
     <div class="col col-lg-8">
+      
 {{{body}}}
 
+{{#unless logged_in}}
+<section>
+  <h3>Signup:</h3>
+  <form id="submitForm">
+    <label for="userName">User Name:</label><br>
+    <input type="text" id="userName" placeholder="John"><br>
+    <label for="pWord">Password:</label><br>
+    <input type="text" id="pWord" placeholder="1234"><br><br>
+    <input type="submit" value="Sign Up">
+</form>
+</section>
+{{/unless}}
 
       <!-- menu partial start-->
       <div class= "mainBody" data-spy="scroll" data-target="#navbar-example3" data-offset="0">
@@ -60,5 +73,8 @@
 {{#if logged_in}}
 <script src="/js/logout.js"></script> 
 {{/if}}
+{{#unless logged_in}}
+<script src="/js/signup.js"></script>
+{{/unless}}
 </body>
 </html>
