@@ -9,7 +9,7 @@ const menuItmData = [
   {
     item_name: "Croissant",
     price: "12.99",
-    image_path: "",
+    image_path: "/images/Croissant.PNG ",
   },
   {
     item_name: "Cafe Au Lait",

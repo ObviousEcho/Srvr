@@ -110,3 +110,6 @@ background-color: var(--lilac);
   color: var(--byz);
   margin-top: 5px;
 }
+.item-price{
+    color: var(--byz);
+}
