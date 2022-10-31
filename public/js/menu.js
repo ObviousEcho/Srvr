@@ -4,6 +4,7 @@ const addBtn = document.querySelector(".add-item");
 const ul = document.querySelector(".ul");
 const orderTotal = document.querySelector(".order-price");
 const orderItems = document.querySelector(".order-items");
+const orderSubmit = document.querySelector("#orderSubmit");
 
 const itmArray = [];
 const priceArray = [];
@@ -51,4 +52,29 @@ const addToOrder = (event) => {
   }
 };
 
+const currentOrderIndex = async () => {
+  await fetch("/api/ordersroutes", {
+    method: "GET",
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data.length);
+      // console.log(data[data.length - 1].id);
+      const orderId = data[data.length - 1].id;
+      return orderId;
+    });
+};
+
+const postNewOrder = async () => {
+  
+};
+
+const submitOrderToDB = async () => {
+  const orderIndex = await currentOrderIndex();
+  postNewOrder();
+};
+
 ul.addEventListener("click", addToOrder);
+orderSubmit.addEventListener("click", submitOrderToDB);
