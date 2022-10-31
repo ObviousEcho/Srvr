@@ -19,13 +19,23 @@ const signUpHandler = async (event) => {
       if (response.ok) {
         // redirect?  another api call to automatically login?
         console.log("success!");
+        $("#myModal").modal({
+          keyboard: false,
+        });
       }
     }
   } catch (err) {
-    alert("Sign up failed!")
+    alert("Sign up failed!");
     console.log(err);
   }
 };
 
+const reloadPage = () => {
+  location.reload();
+};
+
 const submitFrm = document.getElementById("submitForm");
 submitFrm.addEventListener("submit", signUpHandler);
+
+const modalBtn = document.querySelector("#modalBtn");
+modalBtn.addEventListener("click", reloadPage);
