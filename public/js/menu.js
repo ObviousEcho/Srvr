@@ -7,8 +7,11 @@ const orderItems = document.querySelector(".order-items");
 const orderSubmit = document.querySelector("#orderSubmit");
 
 const itmArray = [];
+const itmArrayId =[];
 const priceArray = [];
 let total = 0;
+
+var test;
 
 const addToCart = (array, prcArr, total) => {
   for (let i = 0; i < array.length; i++) {
@@ -36,14 +39,17 @@ const addToOrder = (event) => {
   if (target.tagName === "BUTTON") {
     const item = target.getAttribute("data-item");
     const itemPrice = parseInt(target.getAttribute("data-price"));
+    const id = parseInt(target.getAttribute("data-id"));
 
     console.log(item);
     console.log(`$${itemPrice}`);
 
     itmArray.push(item);
+    itmArrayId.push(id);
     priceArray.push(itemPrice);
     total += itemPrice;
 
+    console.log(itmArrayId);
     console.log(itmArray);
     console.log(`$${total}`);
 
@@ -62,18 +68,51 @@ const currentOrderIndex = async () => {
     .then(function (data) {
       // console.log(data.length);
       // console.log(data[data.length - 1].id);
-      const orderId = data[data.length - 1].id;
-      return orderId;
+      console.log(data.length);
+      const orderId = data.length;
+      console.log(orderId);
+      test = orderId;
+      return test;
     });
 };
 
-const postNewOrder = async () => {
+const postNewOrder = async (order_id, item) => {
+
+  const user_id = 1;
+
   
+  const response = await fetch("/api/orderitems", {
+    // MANA -MAKE SURE THIS IS CORRECT
+    method: "POST",
+    body: JSON.stringify({order_id, item}),
+    headers: { "Content-Type": "application/json" },
+  });
+
+
+
 };
+
 
 const submitOrderToDB = async () => {
   const orderIndex = await currentOrderIndex();
-  postNewOrder();
+
+  console.log(orderIndex);
+  console.log(test);
+  user_id = 1;
+
+  const response = await fetch("/api/ordersroutes", {
+    
+    method: "POST",
+    body: JSON.stringify({user_id}),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  for (let i = 0; i < itmArray.length; i++) {
+    
+    postNewOrder(test, itmArrayId[i]);
+  }
+  
+  
 };
 
 ul.addEventListener("click", addToOrder);
