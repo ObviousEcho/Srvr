@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/menu"); // MANA -CHANGE THIS TO CORRECT REDIRECT
     } else {
-      alert("Failed to log in");
+      $("#error").modal();
     }
   }
 };
