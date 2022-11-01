@@ -19,7 +19,7 @@ const signUpHandler = async (event) => {
       if (response.ok) {
         // redirect?  another api call to automatically login?
         console.log("success!");
-        $("#myModal").modal({
+        $("#success").modal({
           keyboard: false,
         });
       }
@@ -37,5 +37,5 @@ const reloadPage = () => {
 const submitFrm = document.getElementById("submitForm");
 submitFrm.addEventListener("submit", signUpHandler);
 
-const modalBtn = document.querySelector("#modalBtn");
+const modalBtn = document.querySelector("#successBtn");
 modalBtn.addEventListener("click", reloadPage);

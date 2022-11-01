@@ -18,11 +18,19 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/menu"); // MANA -CHANGE THIS TO CORRECT REDIRECT
     } else {
-      alert("Failed to log in");
+      $("#error").modal();
     }
   }
+};
+
+const reloadPage = () => {
+  console.log("test");
+  // location.reload();
 };
 
 document
   .querySelector(".login-btn")
   .addEventListener("click", loginFormHandler);
+
+const modalBtn = document.querySelector("#errorBtn");
+modalBtn.addEventListener("click", reloadPage);
