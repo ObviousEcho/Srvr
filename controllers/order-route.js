@@ -10,12 +10,12 @@ router.get("/", async (req, res) => {
       include: [{ model: Orders }, { model: MenuItems }],
     });
     const orders = orderData.map((order) => order.get({ plain: true }));
-    console.log("orders " + orders[1].order_id);
+    // console.log("orders " + orders[1].order_id); 
     const ordersRemade = await repurposeData(orders);
     // const orderArray = orders[orderitems];
     // orderArray.forEach(order => console.log("order items " + order));
 
-    console.log(ordersRemade);
+    
     res.render("order", {
       ordersRemade,
       logged_in: req.session.logged_in,
@@ -44,8 +44,7 @@ const repurposeData = (orders) => {
     finalOrderArray.push({ order_id: element, items: tempOrder });
 
   });
-  console.log("Array " + orderIdArr);
-  console.log(orders[orders.length.order_id]);
+  
 
   return finalOrderArray;
 
