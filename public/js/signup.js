@@ -7,7 +7,7 @@ const signUpHandler = async (event) => {
     // temporary
     const is_server = true;
 
-    console.log(password);
+    // console.log(password);
 
     if (user_name && password) {
       const response = await fetch("/api/users/signup", {
@@ -30,12 +30,12 @@ const signUpHandler = async (event) => {
   }
 };
 
-const reloadPage = () => {
-  location.reload();
-};
+// const reloadPage = () => { /////////////// MANA
+//   location.reload();
+// };
 
 const submitFrm = document.getElementById("submitForm");
 submitFrm.addEventListener("submit", signUpHandler);
 
-const modalBtn = document.querySelector("#successBtn");
-modalBtn.addEventListener("click", reloadPage);
+// const modalBtn = document.querySelector("#successBtn");  ////////////// MANA
+// modalBtn.addEventListener("click", reloadPage); 
