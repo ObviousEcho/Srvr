@@ -1,7 +1,10 @@
+  {{#each orders as |order|}}
 <div class="card order" style="width: 18rem;">
  <div class="card-body">
-   <h5 class="card-title"> Order # {{order.id}}</h5>
-
+   <h5 class="card-title"> Order # {{id}}</h5>
+   <h5 class="card-title"> Items {{orderitems}}</h5>
+   <h5 class="card-title"> Userr # {{user_id}}</h5>
 
  </div>
 </div>
+{{/each}}
