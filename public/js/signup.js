@@ -37,5 +37,5 @@ const reloadPage = () => {
 const submitFrm = document.getElementById("submitForm");
 submitFrm.addEventListener("submit", signUpHandler);
 
-const modalBtn = document.querySelector("#modalBtn");
+const modalBtn = document.querySelector("#successBtn");
 modalBtn.addEventListener("click", reloadPage);

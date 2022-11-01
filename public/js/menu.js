@@ -7,7 +7,7 @@ const orderItems = document.querySelector(".order-items");
 const orderSubmit = document.querySelector("#orderSubmit");
 
 const itmArray = [];
-const itmArrayId =[];
+const itmArrayId = [];
 const priceArray = [];
 let total = 0;
 
@@ -77,21 +77,15 @@ const currentOrderIndex = async () => {
 };
 
 const postNewOrder = async (order_id, item) => {
-
   const user_id = 1;
 
-  
   const response = await fetch("/api/orderitems", {
     // MANA -MAKE SURE THIS IS CORRECT
     method: "POST",
-    body: JSON.stringify({order_id, item}),
+    body: JSON.stringify({ order_id, item }),
     headers: { "Content-Type": "application/json" },
   });
-
-
-
 };
-
 
 const submitOrderToDB = async () => {
   const orderIndex = await currentOrderIndex();
@@ -101,18 +95,19 @@ const submitOrderToDB = async () => {
   user_id = 1;
 
   const response = await fetch("/api/ordersroutes", {
-    
     method: "POST",
-    body: JSON.stringify({user_id}),
+    body: JSON.stringify({ user_id }),
     headers: { "Content-Type": "application/json" },
   });
 
   for (let i = 0; i < itmArray.length; i++) {
-    
-    postNewOrder(test, itmArrayId[i]);
+    await postNewOrder(test, itmArrayId[i]);
   }
-  
-  
+  await pageReload();
+};
+
+const pageReload = () => {
+  location.reload();
 };
 
 ul.addEventListener("click", addToOrder);
