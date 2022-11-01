@@ -40,14 +40,14 @@
 {{{body}}}
 
 {{#unless logged_in}}
-<section>
-  <h3>Signup:</h3>
+<section id="signUp">
+  <h5>Signup:</h5>
   <form id="submitForm">
     <label for="userName">User Name:</label><br>
     <input type="text" id="userName" placeholder="John"><br>
     <label for="pWord">Password:</label><br>
     <input type="text" id="pWord" placeholder="1234"><br><br>
-    <input type="submit" value="Sign Up">
+    <input type="submit" value="Sign Up" id="signUpBtn">
 </form>
 </section>
 {{/unless}}
