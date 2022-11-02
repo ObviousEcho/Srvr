@@ -4,7 +4,6 @@ const signUpHandler = async (event) => {
     
     const user_name = document.querySelector("#userName").value.trim();
     const password = document.querySelector("#pWord").value.trim();
-    // temporary
     const is_server = true;
         
     if (user_name && password) {
@@ -15,7 +14,6 @@ const signUpHandler = async (event) => {
       });
       
       if (response.ok) {
-        // redirect?  another api call to automatically login?
         console.log("success!");
         $("#success").modal({
           keyboard: false,

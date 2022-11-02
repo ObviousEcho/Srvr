@@ -1,10 +1,9 @@
-  {{#each ordersRemade as |order|}}
-<div class="card order" style="width: 18rem;">
- <div class="card-body">
-   <h5 class="card-title"> Order # {{order_id}}</h5>
-   <h5 class="card-title"> Items:{{items}}</h5>
-   {{!-- <h5 class="card-title"> Userr # {{user_id}}</h5>  --}}
+{{#each ordersRemade as |order|}}
+  <div class="card order" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"> Order # {{order_id}}</h5>
+      <h5 class="card-title"> Items:{{items}}</h5>
 
- </div>
-</div>
+    </div>
+  </div>
 {{/each}}

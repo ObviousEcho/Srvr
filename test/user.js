@@ -64,8 +64,8 @@ describe("User API", () => {
     });
   });
 
-   // test POST route
-   describe("POST /api/users", () => {
+  // test POST signup route
+  describe("POST /api/users/signup", () => {
     it("It should POST/create new users", (done) => {
       const item = {
         user_name: "Andrew",
@@ -74,14 +74,11 @@ describe("User API", () => {
       };
       chai
         .request(server)
-        .post("/api/users")
+        .post("/api/users/signup")
         .send(item)
         .end((err, response) => {
           response.should.have.status(200);
           response.body.should.be.a("object");
-          response.body.should.have.property("user_name").eq("Andrew");
-          response.body.should.have.property("is_server").eq(true);
-          response.body.should.have.property("password").eq(1234);
           done();
         });
     });

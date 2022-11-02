@@ -20,14 +20,14 @@ router.get("/:id", async (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  // console.log(req.body); 
+  console.log(req.body); 
   User.create({
     user_name: req.body.user_name,
     is_server: req.body.is_server,
     password: req.body.password,
   })
     .then((newUser) => {
-      res.json(newUser);
+      res.status(200).json(newUser);
     })
     .catch((err) => {
       res.json(err);
@@ -74,7 +74,6 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      // console.log(req.sessionID); 
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
