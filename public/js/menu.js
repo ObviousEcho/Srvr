@@ -66,8 +66,6 @@ const currentOrderIndex = async () => {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data.length);
-      // console.log(data[data.length - 1].id);
       console.log(data.length);
       const orderId = data.length;
       console.log(orderId);
@@ -80,7 +78,6 @@ const postNewOrder = async (order_id, item) => {
   const user_id = 1;
 
   const response = await fetch("/api/orderitems", {
-    // MANA -MAKE SURE THIS IS CORRECT
     method: "POST",
     body: JSON.stringify({ order_id, item }),
     headers: { "Content-Type": "application/json" },

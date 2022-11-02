@@ -24,7 +24,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', (req, res) => {
 
   Orders.create({
-    //not sure how we get this in here from front end lol
     user_id: req.body.user_id,
 
   })

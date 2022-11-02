@@ -9,28 +9,19 @@ const loginFormHandler = async (event) => {
   if (user_name && password) {
     // Send the username and password to the server
     const response = await fetch("/api/users/login", {
-      // MANA -MAKE SURE THIS IS CORRECT
       method: "POST",
       body: JSON.stringify({ user_name, password }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace("/menu"); // MANA -CHANGE THIS TO CORRECT REDIRECT
+      document.location.replace("/menu"); 
     } else {
       $("#error").modal();
     }
   }
 };
 
-const reloadPage = () => {
-  // console.log("test");
-  // location.reload();
-};
+const logInBtn = document.querySelector(".login-btn");
+logInBtn.addEventListener("click", loginFormHandler);
 
-document
-  .querySelector(".login-btn")
-  .addEventListener("click", loginFormHandler);
-
-const modalBtn = document.querySelector("#errorBtn");
-modalBtn.addEventListener("click", reloadPage);

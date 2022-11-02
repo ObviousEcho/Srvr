@@ -5,9 +5,21 @@
         <div class="card m-4 listener menuitem" style="width: 10rem;">
           <div class="card-body">
             <h5 class="card-title menu-item">{{item_name}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted item-price"id="price">${{price}}</h6>
-            <img src="/images/{{image_path}}" class="card-img-top" alt="{{item_name}}">
-            <button class="btn btn-primary" data-item="{{item_name}}" data-id="{{id}}" data-price="{{price}}">Add Item</button>
+            <h6
+              class="card-subtitle mb-2 text-muted item-price"
+              id="price"
+            >${{price}}</h6>
+            <img
+              src="/images/{{image_path}}"
+              class="card-img-top"
+              alt="{{item_name}}"
+            />
+            <button
+              class="btn btn-primary"
+              data-item="{{item_name}}"
+              data-id="{{id}}"
+              data-price="{{price}}"
+            >Add Item</button>
           </div>
         </div>
       </li>
@@ -20,15 +32,11 @@
       <h3>Items:</h3>
       <div class="order-items"></div>
     </div>
-    {{!-- <div>
-      <h3>Customizations:</h3>
-      <div class="mods"></div>
-    </div> --}}
     <div>
       <h3>Total:</h3>
       <div class="order-price"></div>
     </div>
-    
+
     <button class="btn btn-primary" id="orderSubmit">Submit Order</button>
   </section>
 
