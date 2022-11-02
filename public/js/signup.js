@@ -6,9 +6,7 @@ const signUpHandler = async (event) => {
     const password = document.querySelector("#pWord").value.trim();
     // temporary
     const is_server = true;
-    
-    console.log(password);
-    
+        
     if (user_name && password) {
       const response = await fetch("/api/users/signup", {
         method: "POST",
