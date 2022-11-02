@@ -23,14 +23,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const reloadPage = () => {
-  console.log("test");
-  // location.reload();
-};
+const logInBtn = document.querySelector(".login-btn");
+logInBtn.addEventListener("click", loginFormHandler);
 
-document
-  .querySelector(".login-btn")
-  .addEventListener("click", loginFormHandler);
-
-const modalBtn = document.querySelector("#errorBtn");
-modalBtn.addEventListener("click", reloadPage);
