@@ -1,5 +1,4 @@
 const path = require('path');
-require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -17,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: process.env.SECRET,
+  secret: "Super secret secret",
   cookie: {
     maxAge: 300000,
     httpOnly: true,
